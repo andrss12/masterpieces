@@ -25,7 +25,7 @@ body {
   background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
 }
 body {
-    background-color: #fff59d;
+    background-color: white;
 }
 @media (max-width: 768px) {
   body {
