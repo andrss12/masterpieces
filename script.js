@@ -22,3 +22,30 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const aulasBtn = document.querySelector(".ver-aulas-btn");
+
+    if (aulasBtn) {
+        aulasBtn.addEventListener("click", function (event) {
+            event.preventDefault(); // Evita la navegación inmediata
+
+            document.body.classList.add("jump-transition");
+
+            // Guardamos en sessionStorage que la animación ocurrió
+            sessionStorage.setItem("jumpEffect", "true");
+
+            setTimeout(() => {
+                window.location.href = aulasBtn.href;
+            }, 500); // Espera la animación antes de cambiar de página
+        });
+    }
+
+    // Si regresamos a la página, eliminamos el efecto para que vuelva a ocurrir
+    if (sessionStorage.getItem("jumpEffect") === "true") {
+        document.body.classList.remove("jump-transition");
+        sessionStorage.removeItem("jumpEffect");
+    }
+});
