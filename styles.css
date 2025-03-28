@@ -21,16 +21,20 @@ html, body {
   object-fit: cover; /* Evita deformaciones */
 }
 body {
+  background-color: white;
   background: url('fondopagina.jpg') no-repeat center center fixed;
   background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
-}
-body {
-    background-color: white;
 }
 @media (max-width: 768px) {
   body {
       background-attachment: scroll; /* 🔹 Permite que el fondo se desplace en móviles */
   }
+}
+/*linea gris que separa los botones de la barra de navegacion*/
+.header .nav-links li {
+  border-right: 1px solid #ccc; /* Línea gris */
+  padding-right: 20px;
+  margin-right: 20px;
 }
 /* 🔹 Estilos del Header */
 .header {
@@ -225,6 +229,7 @@ body {
   animation: fadeInLeft 1.5s ease-out;
 
   background: linear-gradient(90deg, #ff8a00, #e52e71, #6a0dad);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
@@ -390,14 +395,23 @@ body {
   background-color: #1b95e0; /* Cambio de color cuando se pasa el cursor */
 }
 
-/* Animación de fade-in desde abajo */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px); /* Comienza más abajo */
+
+
+.jump-transition {
+  animation: jumpOut 0.5s ease-in forwards;
+}
+
+@keyframes jumpOut {
+  00% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+  30% {
+      transform: translateY(-15px); /* Salta hacia arriba */
+      opacity: 0.9;
   }
   100% {
-    opacity: 1;
-    transform: translateY(0); /* Llega a su posición final */
+      transform: translateY(30px); /* Baja y desaparece */
+      opacity: 0;
   }
 }
